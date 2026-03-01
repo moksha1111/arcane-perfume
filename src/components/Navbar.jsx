@@ -15,7 +15,7 @@ export default function Navbar() {
         scrolled ? 'bg-midnight/95 backdrop-blur-md border-b border-gold/10' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-8 py-5 relative flex items-center justify-between">
         {/* Left links */}
         <div className="hidden md:flex items-center gap-8">
           {['Collection', 'Story'].map(link => (
@@ -29,8 +29,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Center logo */}
-        <div className="flex flex-col items-center">
+        {/* Center logo — absolutely centered on the full nav width */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none">
           <span className="font-display text-gold text-2xl tracking-[0.4em]">ARCANE</span>
           <span className="font-body text-smoke text-[0.6rem] tracking-[0.35em] uppercase mt-0.5">
             Parfumerie
@@ -38,7 +38,7 @@ export default function Navbar() {
         </div>
 
         {/* Right links + CTA */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 ml-auto">
           {['Ingredients', 'Visit'].map(link => (
             <a
               key={link}
@@ -56,8 +56,8 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile — only logo visible, already centered */}
-        <div className="md:hidden">
+        {/* Mobile */}
+        <div className="md:hidden ml-auto">
           <a
             href="#collection"
             className="font-body text-xs tracking-[0.2em] uppercase text-gold border border-gold/50 px-4 py-2 transition-all duration-300"
